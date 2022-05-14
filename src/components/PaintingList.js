@@ -32,6 +32,7 @@ export default PaintingList;
 
 console.log("hello");
 console.log("privet");
+console.log("alloha");
 
 // const markup = paintings.map((painting) => {
 //   return (

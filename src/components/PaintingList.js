@@ -30,6 +30,9 @@ PaintingList.propTypes = {
 
 export default PaintingList;
 
+console.log("hello");
+console.log("privet");
+
 // const markup = paintings.map((painting) => {
 //   return (
 //     <Painting

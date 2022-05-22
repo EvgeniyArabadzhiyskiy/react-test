@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
+import "./Painting.css";
 import defaultImage from "./default.jpg";
 
-export default function Painting({
+function Painting({
   imageUrl = defaultImage,
   title = "Неизвестно",
   authorTag,
@@ -10,7 +11,7 @@ export default function Painting({
   quantity,
 }) {
   return (
-    <div>
+    <div className="Painting">
       <img src={imageUrl ?? defaultImage} alt={title} width="480" />
       <h2>{title}</h2>
       <p>
@@ -31,3 +32,5 @@ Painting.propTypes = {
   quantity: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
 };
+
+export default Painting;

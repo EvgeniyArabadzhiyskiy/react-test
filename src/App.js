@@ -52,6 +52,7 @@ class App extends Component {
 
   render() {
     const { todos } = this.state;
+
     const allTodos = todos.length;
     const ComplitedTodo = todos.reduce((acc, todo) => {
       return todo.complited ? acc + 1 : acc;

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import stl from "./ColorPicker.module.css";
 import PropTypes from "prop-types";
 import Buttons from "./Buttons/Buttons";
+import classNames from "classnames";
 
 class ColorPicker extends Component {
   static propTypes = {
@@ -24,12 +25,16 @@ class ColorPicker extends Component {
   };
 
   makeOptionClassesName = (index) => {
-    const optionClass = [stl.opti];
+    return classNames(stl.opti, {
+      [stl.opti__action]: index === this.state.activIndex,
+    });
 
-    if (index === this.state.activIndex) {
-      optionClass.push(stl.opti__action);
-    }
-    return optionClass.join(" ");
+    // const optionClass = [stl.opti];
+
+    // if (index === this.state.activIndex) {
+    //   optionClass.push(stl.opti__action);
+    // }
+    // return optionClass.join(" ");
   };
 
   render() {

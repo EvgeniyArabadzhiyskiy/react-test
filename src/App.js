@@ -50,6 +50,23 @@ class App extends Component {
     });
   };
 
+  handleCheckBoxChange = (data) => {
+    this.setState((prevState) => {
+      return {
+        todos: prevState.todos.map((todo) => {
+          return todo.id === data
+            ? { ...todo, complited: !todo.complited }
+            : todo;
+        }),
+      };
+
+      // if (todo.id === data) {
+      //   return {...todo,complited: !todo.complited}
+      // }
+      // return todo
+    });
+  };
+
   render() {
     const { todos } = this.state;
 
@@ -66,7 +83,11 @@ class App extends Component {
         </div>
 
         <Form dataTodo={this.state.todos} onHandleSubmit={this.handleSubmit} />
-        <TodoList todos={this.state.todos} onBtnClick={this.deleteTask} />
+        <TodoList
+          todos={this.state.todos}
+          onBtnClick={this.deleteTask}
+          onCheckBoxComplited={this.handleCheckBoxChange}
+        />
       </div>
     );
   }

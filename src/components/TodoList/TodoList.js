@@ -1,13 +1,24 @@
-// import stl from "./ToduList.module.css";
+import "./TodoList.scss";
+import classNames from "classnames";
 
-const ToduList = ({ todos, onBtnClick }) => {
+const ToduList = ({ todos, onBtnClick, onCheckBoxComplited }) => {
   return (
-    <ul>
-      {todos.map(({ id, task }) => {
+    <ul className="TodoList">
+      {todos.map(({ id, task, complited }) => {
         return (
-          <li key={id}>
+          <li
+            key={id}
+            className={classNames("TodoList__item", {
+              TodoList__item__completed: complited,
+            })}
+          >
             <p>{task}</p>
-            <button type="button" onClick={() => onBtnClick(id)}>
+            <input
+              type="checkbox"
+              checked={complited}
+              onChange={(evt) => onCheckBoxComplited(id)}
+            />
+            <button className="" type="button" onClick={() => onBtnClick(id)}>
               Удалить
             </button>
           </li>

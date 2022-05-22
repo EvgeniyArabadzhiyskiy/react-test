@@ -6,6 +6,8 @@ class Form extends Component {
   state = {
     updateTodo: this.props.dataTodo,
     inputValue: "",
+    experions: "junior",
+    license: false,
     // name: "",
     // tag: "",
   };
@@ -33,15 +35,6 @@ class Form extends Component {
     });
   };
 
-  //   deleteTask = (id) => {
-  //     this.setState((prevState) => {
-  //       console.log(prevState);
-  //       return {
-  //         updateTodo: prevState.updateTodo.filter((todo) => id !== todo.id),
-  //       };
-  //     });
-  //   };
-
   resetForm = () => {
     this.setState({
       inputValue: "",
@@ -57,9 +50,34 @@ class Form extends Component {
   //     })
   //   }
 
+  handleRadioBtn = (evt) => {
+    // console.log(evt.target.value);
+    // const { name, value } = evt.target
+    //   this.setState({
+    //     [name]: value
+    //   })
+  };
+
+  handleLicense = (evt) => {
+    console.log(evt.target.checked);
+    this.setState({
+      license: evt.target.checked,
+    });
+  };
+
   render() {
     return (
       <div>
+        <label>
+          <input
+            type="checkbox"
+            name="license"
+            checked={this.state.license}
+            onChange={this.handleLicense}
+          />
+          Согласен с условием
+        </label>
+
         <form onSubmit={this.formSubmit}>
           <label>
             <input
@@ -70,6 +88,37 @@ class Form extends Component {
             />
           </label>
           <button type="submit">Сохранить</button>
+
+          <label>
+            Junior
+            <input
+              type="radio"
+              name="experions"
+              value="junior"
+              checked={this.state.experions === "junior"}
+              onChange={this.handleRadioBtn}
+            />
+          </label>
+          <label>
+            Middle
+            <input
+              type="radio"
+              name="experions"
+              value="middle"
+              checked={this.state.experions === "middle"}
+              onChange={this.handleRadioBtn}
+            />
+          </label>
+          <label>
+            Senior
+            <input
+              type="radio"
+              name="experions"
+              value="senior"
+              checked={this.state.experions === "senior"}
+              onChange={this.handleRadioBtn}
+            />
+          </label>
         </form>
         {/* <TodoList todos={this.state.updateTodo} onBtnClick={this.deleteTask} /> */}
       </div>

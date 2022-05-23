@@ -12,8 +12,9 @@ import React, { Component } from "react";
 // import Modal from "./components/Alls/Modal/Modal";
 // import Dropdown from "components/Dropdown/Dropdown"
 import initialTodos from "./todos.json";
-import TodoList from "./components/TodoList/TodoList";
+import TodoList from "./components/TodoList/TodoList/TodoList";
 import Form from "./components/TodoList/Form/Form";
+import Filter from "./components/TodoList/Filter/Filter";
 import shortid from "shortid";
 
 // const colorPickerOptions = [
@@ -27,7 +28,20 @@ import shortid from "shortid";
 
 class App extends Component {
   state = {
-    todos: initialTodos,
+    todos: initialTodos, // Массив из .Json [{ id: "1", task: "Выучить HTML", complited: true}]
+    filter: "",
+  };
+
+  handleSubmit = (text) => {
+    this.setState((prevState) => {
+      const addTask = {
+        id: shortid.generate(),
+        task: text,
+        complited: false,
+      };
+
+      return { todos: [addTask, ...prevState.todos] };
+    });
   };
 
   deleteTask = (id) => {
@@ -38,19 +52,7 @@ class App extends Component {
     });
   };
 
-  handleSubmit = (data) => {
-    this.setState((prevState) => {
-      const addTask = {
-        id: shortid.generate(),
-        task: data,
-        complited: false,
-      };
-
-      return { todos: [addTask, ...prevState.todos] };
-    });
-  };
-
-  handleCheckBoxChange = (data) => {
+  toggleComplitd = (data) => {
     this.setState((prevState) => {
       return {
         todos: prevState.todos.map((todo) => {
@@ -67,6 +69,20 @@ class App extends Component {
     });
   };
 
+  changeFilter = (evt) => {
+    this.setState({
+      filter: evt.currentTarget.value,
+    });
+  };
+
+  getVisibleTodos = () => {
+    const normalizedFilter = this.state.filter.toLowerCase();
+
+    return this.state.todos.filter((todo) => {
+      return todo.task.toLowerCase().includes(normalizedFilter);
+    });
+  };
+
   render() {
     const { todos } = this.state;
 
@@ -75,6 +91,8 @@ class App extends Component {
       return todo.complited ? acc + 1 : acc;
     }, 0);
 
+    const visibleTodos = this.getVisibleTodos();
+
     return (
       <div>
         <div>
@@ -82,11 +100,16 @@ class App extends Component {
           <p>Количество выполненных: {ComplitedTodo}</p>
         </div>
 
+        <Filter
+          filterValue={this.state.filter}
+          onFilterHandler={this.changeFilter}
+        />
+
         <Form dataTodo={this.state.todos} onHandleSubmit={this.handleSubmit} />
         <TodoList
-          todos={this.state.todos}
+          todos={visibleTodos}
           onBtnClick={this.deleteTask}
-          onCheckBoxComplited={this.handleCheckBoxChange}
+          onToggleComplited={this.toggleComplitd}
         />
       </div>
     );

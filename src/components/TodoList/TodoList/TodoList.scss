@@ -1,4 +1,4 @@
-@import '../../style/shared.scss';
+@import '../../../style/shared.scss';
 
 
 .TodoList{
@@ -13,7 +13,8 @@
 .TodoList__item{
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: baseline;
+    justify-content: space-around;
     padding: 20px;
     border: 1px solid $black;
     border-radius: 4px;
@@ -39,3 +40,21 @@
 }
 
 
+
+.TodoList__checkbox{
+    margin-right: 20px;
+}
+
+.TodoList__text{
+    margin-right: 20px;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.TodoList__btn{
+    @extend %button;
+    padding: 10px;
+    border-radius: 4px;
+    color: $white;
+    background-color: rgb(67, 31, 134);
+}

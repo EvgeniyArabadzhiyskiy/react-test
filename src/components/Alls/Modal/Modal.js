@@ -25,7 +25,7 @@ class Modal extends Component {
           className={`${"backdrop"} ${this.state.isHidden}`.trim()}
           onClick={this.toggle}
         >
-          <div className="modal__window"></div>
+          <div className="modal__window">{this.props.children}</div>
         </div>
       </div>
     );

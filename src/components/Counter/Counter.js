@@ -17,13 +17,13 @@ class Counter extends React.Component {
     value: this.props.initialValue,
   };
 
-  handleIncrement() {
+  handleIncrement = () => {
     this.setState((prevState) => {
       return {
         value: prevState.value + 1,
       };
     });
-  }
+  };
 
   handleDecrement = () => {
     this.setState((prevState) => {
@@ -39,7 +39,7 @@ class Counter extends React.Component {
         <Value value={this.state.value} />
 
         <Control
-          onIncrement={this.handleIncrement.bind(this)}
+          onIncrement={this.handleIncrement}
           onDecrement={this.handleDecrement}
         />
       </div>

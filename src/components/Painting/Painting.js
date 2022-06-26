@@ -7,8 +7,8 @@ function Painting({
   title = "Неизвестно",
   authorTag,
   authorUrl,
-  price,
   quantity,
+  price,
 }) {
   return (
     <div className="Painting">

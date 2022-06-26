@@ -10,7 +10,7 @@ function ButtonPaint({ type = "button", disabled, label }) {
   return (
     <button
       className={btnClasses.join(" ")}
-      style={{ backgroundColor: "red" }}
+      // style={{ backgroundColor: "red" }}
       type={type}
       disabled={disabled}
     >

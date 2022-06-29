@@ -1,8 +1,7 @@
-import React, { Component } from "react";
-import stl from "./ColorPicker.module.css";
+import { Component } from "react";
 import PropTypes from "prop-types";
 import Buttons from "./Buttons/Buttons";
-import classNames from "classnames";
+import { StyledText } from "./ColorPicker.styled";
 
 class ColorPicker extends Component {
   static propTypes = {
@@ -24,18 +23,18 @@ class ColorPicker extends Component {
     });
   };
 
-  makeOptionClassesName = (index) => {
-    return classNames(stl.opti, {
-      [stl.opti__action]: index === this.state.activIndex,
-    });
+  // makeOptionClassesName = (index) => {
+  //   return classNames(stl.opti, {
+  //     [stl.opti__action]: index === this.state.activIndex,
+  //   });
 
-    // const optionClass = [stl.opti];
+  //   // const optionClass = [stl.opti];
 
-    // if (index === this.state.activIndex) {
-    //   optionClass.push(stl.opti__action);
-    // }
-    // return optionClass.join(" ");
-  };
+  //   // if (index === this.state.activIndex) {
+  //   //   optionClass.push(stl.opti__action);
+  //   // }
+  //   // return optionClass.join(" ");
+  // };
 
   render() {
     const { activIndex } = this.state;
@@ -45,13 +44,13 @@ class ColorPicker extends Component {
     return (
       <div>
         <h2>Color Picker</h2>
-        <p className={stl.text} style={{ backgroundColor: color }}>
+        <StyledText style={{ backgroundColor: color }}>
           Выбран цвет: {label}
-        </p>
+        </StyledText>
 
         <Buttons
           options={options}
-          onMakeClassOptions={this.makeOptionClassesName}
+          stateIndex={this.state.activIndex}
           onMakeIndex={this.click}
         />
       </div>

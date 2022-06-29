@@ -1,27 +1,29 @@
+// ================ Formik Yup Библиотеки =======================
+
 // import FormikForm from "components/Formik/Formik";
-import ProductReviewForm from "components/Formik2/ProductReviewForm";
+// import ProductReviewForm from "components/Formik2/ProductReviewForm";
 
-import { Component } from "react";
+// import { Component } from "react";
 
-class App extends Component {
-  render() {
-    return (
-      <>
-        {/* <FormikForm /> */}
-        <ProductReviewForm />
-      </>
-    );
-  }
-}
+// class App extends Component {
+//   render() {
+//     return (
+//       <>
+//         {/* <FormikForm /> */}
+//         <ProductReviewForm />
+//       </>
+//     );
+//   }
+// }
 
-export default App;
+// export default App;
 
-// import Section from "components/Section/Section";
-// import Container from "components/Container/Container";
+import Section from "components/Section/Section";
+import Container from "components/Container/Container";
 // import PaintingList from "components/PaintingList/PaintingList";
 // import paintings from "./paintings.json";
 // import ButtonPaint from "components/ButtonPaint";
-// import ColorPicker from "components/ColorPicker/ColorPicker";
+import ColorPicker from "components/ColorPicker/ColorPicker";
 // import Alert from "components/Alert/Alert";
 // import Profile from "components/Profile/Profile";
 // import user from "components/Profile/user.json";
@@ -34,14 +36,14 @@ export default App;
 // import Filter from "./components/TodoList/Filter/Filter";
 // import shortid from "shortid";
 
-// const colorPickerOptions = [
-//   { label: "red", color: "#F44336" },
-//   { label: "green", color: "#4CAF50" },
-//   { label: "blue", color: "#2196F3" },
-//   { label: "grey", color: "#607D8B" },
-//   { label: "pink", color: "#E91E63" },
-//   { label: "indigo", color: "#3F51B5" },
-// ];
+const colorPickerOptions = [
+  { label: "red", color: "#F44336" },
+  { label: "green", color: "#4CAF50" },
+  { label: "blue", color: "#2196F3" },
+  { label: "grey", color: "#607D8B" },
+  { label: "pink", color: "#E91E63" },
+  { label: "indigo", color: "#3F51B5" },
+];
 
 // class App extends Component {
 //   state = {
@@ -135,30 +137,29 @@ export default App;
 
 // export default App;
 
-// export default function App(props) {
-//   return (
-//     <div>
-//       <Container>
-//         <Section title="Топ недели">
+export default function App(props) {
+  return (
+    <div>
+      <Container>
+        <Section title="Топ недели">
+          {/* <Modal /> */}
+          {/* <Dropdown /> */}
+          {/* <Counter initialValue={10} /> */}
+          <ColorPicker options={colorPickerOptions} />
+          {/* <Alert text="Шеф всё пропало!" type="error" /> */}
+          {/* <Alert text="Шеф всё пропало!" type="warning" /> */}
+          {/* <Alert text="Шеф всё пропало!" type="success" /> */}
+        </Section>
 
-//           {/* <Modal /> */}
-//           {/* <Dropdown /> */}
-//           {/* <Counter initialValue={10} /> */}
-//           {/* <ColorPicker options={colorPickerOptions} /> */}
-//           {/* <Alert text="Шеф всё пропало!" type="error" /> */}
-//           {/* <Alert text="Шеф всё пропало!" type="warning" /> */}
-//           {/* <Alert text="Шеф всё пропало!" type="success" /> */}
-//         </Section>
+        {/* <PaintingList items={paintings} /> */}
+        {/* <ButtonPaint type="button" disabled={false} label="Click Me" /> */}
+        {/* <Section title="The Best" classes="is-hidden open"> */}
 
-//         {/* <PaintingList items={paintings} /> */}
-//         {/* <ButtonPaint type="button" disabled={false} label="Click Me" /> */}
-//         {/* <Section title="The Best" classes="is-hidden open"> */}
-
-//         {/* </Section> */}
-//       </Container>
-//     </div>
-//   );
-// }
+        {/* </Section> */}
+      </Container>
+    </div>
+  );
+}
 
 // ========================= TEST==========================
 

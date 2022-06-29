@@ -1,19 +1,19 @@
-const Buttons = ({ options, onMakeClassOptions, onMakeIndex }) => (
+import { StyledButton } from "./Buttons.styled";
+
+const Buttons = ({ options, onMakeIndex, stateIndex }) => (
   <div>
     {options.map((option, index) => {
       return (
-        <button
+        <StyledButton
           key={option.color}
-          className={onMakeClassOptions(index)}
+          stateIndex={stateIndex === index}
           style={{
             backgroundColor: option.color,
-            color: "black",
-            border: "2px solid black",
           }}
           onClick={() => onMakeIndex(index)}
         >
           {option.label}
-        </button>
+        </StyledButton>
       );
     })}
   </div>

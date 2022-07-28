@@ -1,6 +1,7 @@
 import "./Modal.css";
 import React, { Component } from "react";
 
+//========   Не Верное решение модалки ================
 class Modal extends Component {
   state = {
     isHidden: "",
